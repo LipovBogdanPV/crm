@@ -4,9 +4,19 @@ import fetch from "node-fetch";
 
 const app = express();
 
-// ✅ Правильна CORS-конфігурація для Netlify-домену
+const allowedOrigins = [
+  "https://quiet-scone-5a0338.netlify.app",
+  "https://sifttime-widget.netlify.app"
+];
+
 const corsOptions = {
-  origin: "https://quiet-scone-5a0338.netlify.app",
+  origin: (origin, callback) => {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error("Not allowed by CORS"));
+    }
+  },
   methods: "GET,POST",
   allowedHeaders: ["Content-Type"]
 };
@@ -65,4 +75,5 @@ const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`✅ Proxy-сервер запущено на порту ${PORT}`);
 });
+
 
