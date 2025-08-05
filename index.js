@@ -6,7 +6,7 @@ const app = express();
 
 // ✅ Правильна CORS-конфігурація для Netlify-домену
 const corsOptions = {
-  origin: "https://shifttime-crm-test.netlify.app",
+  origin: "https://quiet-scone-5a0338.netlify.app",
   methods: "GET,POST",
   allowedHeaders: ["Content-Type"]
 };
@@ -65,3 +65,4 @@ const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`✅ Proxy-сервер запущено на порту ${PORT}`);
 });
+
