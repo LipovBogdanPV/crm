@@ -15,7 +15,7 @@ app.use(cors(corsOptions));
 app.use(express.json());
 
 // 🔗 URL до Google Apps Script
-const GAS_URL = "https://script.google.com/macros/s/AKfycbzRdjsoZ6uT6S2nioFn_7s6A1SCLt7GQsj5ib5enKwkzd5tDEp_AroxmXLLec5BDuW1/exec";
+const GAS_URL = "https://script.google.com/macros/s/AKfycbzcXSwV2RhjW1UH48ftbjUO-wzWWz3Wpdeszm51dwducn7FwaESpZBEetGkNuBhfweM/exec";
 
 // 📤 Обробка повної форми
 app.post("/send", async (req, res) => {
@@ -65,6 +65,7 @@ const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`✅ Proxy-сервер запущено на порту ${PORT}`);
 });
+
 
 
 
