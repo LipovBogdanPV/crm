@@ -4,22 +4,12 @@ import fetch from "node-fetch";
 
 const app = express();
 
-const allowedOrigins = [
-  "https://quiet-scone-5a0338.netlify.app",
-  "https://sifttime-widget.netlify.app"
-];
-
 const corsOptions = {
-  origin: (origin, callback) => {
-    if (!origin || allowedOrigins.includes(origin)) {
-      callback(null, true);
-    } else {
-      callback(new Error("Not allowed by CORS"));
-    }
-  },
+  origin: "https://quiet-scone-5a0338.netlify.app",  // 🟢 Збігається з доменом фронтенду
   methods: "GET,POST",
   allowedHeaders: ["Content-Type"]
 };
+
 
 app.use(cors(corsOptions));
 app.use(express.json());
@@ -75,5 +65,6 @@ const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`✅ Proxy-сервер запущено на порту ${PORT}`);
 });
+
 
 
